@@ -1,5 +1,7 @@
 # HalfLime JavaScript SDK
 
+[![Node.js 22+](https://img.shields.io/badge/Node.js-22%2B-417E38?logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![ES modules](https://img.shields.io/badge/modules-ESM-F7DF1E?logo=javascript&logoColor=white)](package.json) [![Apache 2.0 license](https://img.shields.io/badge/license-Apache%202.0-2563EB)](LICENSE)
+
 Send app events and website pageviews to [your own HalfLime instance](https://github.com/halflime/halflime). The SDK ships as ES modules for browsers and Node.js 22+, with no runtime dependencies. Importing it does not start tracking.
 
 ## Install from source
