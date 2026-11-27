@@ -1,0 +1,59 @@
+{
+  "name": "@halflime/javascript",
+  "version": "1.0.0",
+  "packageManager": "pnpm@12.9.1",
+  "description": "Send app events and website pageviews to your HalfLime instance",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "Alex Zappa (FreshJuice)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halflime/halflime-javascript.git"
+  },
+  "homepage": "https://halflime.dev",
+  "bugs": {
+    "url": "https://github.com/halflime/halflime-javascript/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./website": {
+      "types": "./dist/website.d.ts",
+      "import": "./dist/website.js"
+    },
+    "./script": "./dist/halflime.min.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": [
+    "./dist/halflime.min.js"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc && esbuild src/script.ts --bundle --format=iife --global-name=HalfLime --minify --outfile=dist/halflime.min.js",
+    "check": "tsc --noEmit",
+    "format": "prettier --write src test scripts *.json *.md",
+    "format:check": "prettier --check src test scripts *.json *.md",
+    "test": "pnpm run build && node --test test/*.test.mjs",
+    "check:package": "node scripts/check-package.mjs",
+    "prepack": "pnpm run build"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
+  }
+}
